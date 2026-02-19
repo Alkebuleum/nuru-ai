@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/nuru-ai/static/css/main.e6c13ad2.css",
+    "main.js": "/nuru-ai/static/js/main.6498a758.js",
+    "static/js/453.1e9bee58.chunk.js": "/nuru-ai/static/js/453.1e9bee58.chunk.js",
+    "index.html": "/nuru-ai/index.html",
+    "main.e6c13ad2.css.map": "/nuru-ai/static/css/main.e6c13ad2.css.map",
+    "main.6498a758.js.map": "/nuru-ai/static/js/main.6498a758.js.map",
+    "453.1e9bee58.chunk.js.map": "/nuru-ai/static/js/453.1e9bee58.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.6498a758.js"
+  ]
+}
