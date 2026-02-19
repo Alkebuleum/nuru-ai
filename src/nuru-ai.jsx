@@ -257,7 +257,7 @@ export default function NuruApp() {
 
       {/* Body */}
       <div style={{ display: "flex", flex: 1, position: "relative", zIndex: 1, overflow: "hidden", height: "calc(100vh - 60px)" }}>
-
+        
         {/* Sidebar */}
         {sidebarOpen && (
           <aside style={{
