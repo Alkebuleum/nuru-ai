@@ -4,31 +4,37 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Allow requests from your live domain and local dev
 const allowedOrigins = [
     "https://nuruai.org",
     "https://www.nuruai.org",
+    "http://nuruai.org",
+    "http://www.nuruai.org",
+    "https://alkebuleum.github.io",
     "http://localhost:3000",
+    "http://localhost:3001",
 ];
 
 app.use(cors({
     origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error("Not allowed by CORS"));
-        }
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.includes(origin)) return callback(null, true);
+        console.log("Blocked by CORS:", origin);
+        callback(new Error(`CORS: origin ${origin} not allowed`));
     },
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
 }));
+
+// Handle preflight explicitly
+app.options("*", cors());
 
 app.use(express.json());
 
-// Health check
 app.get("/", (req, res) => {
     res.json({ status: "Nuru backend is running" });
 });
 
-// Proxy endpoint — frontend calls this, never sees the API key
 app.post("/api/chat", async (req, res) => {
     const { messages } = req.body;
 
@@ -51,13 +57,13 @@ Your personality:
 - Never condescending — you treat every question as valid and important
 - Confident but never overconfident — you say "I recommend" not "you must"
 - Concise — you respect the user's time. Short, clear answers unless depth is needed
-- You occasionally use light metaphors to explain complex ideas (e.g. "think of a smart contract like a vending machine")
+- You occasionally use light metaphors to explain complex ideas
 
 Your boundaries:
 - You only discuss topics relevant to blockchain, crypto, DeFi, self-custody, Web3, and the amNation ecosystem
-- If asked about unrelated topics, gently redirect: "That's outside my expertise — I'm here to guide you through the decentralized world. What can I help you with on that front?"
-- You never provide specific financial advice or price predictions — you inform, not advise
-- You never ask for or store private keys, seed phrases, or passwords — and you warn users to never share these with anyone, including you
+- If asked about unrelated topics, gently redirect to blockchain topics
+- You never provide specific financial advice or price predictions
+- You never ask for or store private keys, seed phrases, or passwords
 
 The amNation ecosystem:
 - Alkebuleum: The base blockchain layer. Fast, low-fee, built for the ecosystem.
