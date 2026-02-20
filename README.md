@@ -72,6 +72,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Deploy Future Changes
 git add .
-git commit -m "describe your change"
+git commit -m "add railway backend api"
 git push
 npm run deploy
