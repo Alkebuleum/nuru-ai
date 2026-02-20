@@ -1,12 +1,19 @@
 import StatusDot from "../shared/StatusDot";
-import { CONNECTIONS, ECOSYSTEM } from "../data/constants";
+import { ECOSYSTEM } from "../data/constants";
+
+// Wallet row removed — AmVault WalletConnect component handles that now
+const CONNECTIONS = [
+    { label: "chat54", status: "coming soon", detail: "Decentralized messaging", color: "#fbbf24" },
+    { label: "Alkebuleum", status: "live", detail: "Block #2,847,193", color: "#4ade80" },
+    { label: "jollofswap", status: "live", detail: "DEX ready", color: "#4ade80" },
+];
 
 export default function ConnectionStatus() {
     return (
         <div>
-            {/* Connections */}
+            {/* Network & App Status */}
             <div style={{ marginBottom: 24 }}>
-                <SectionLabel color="var(--blue-accent)">◈ Connections</SectionLabel>
+                <SectionLabel color="var(--blue-accent)">◈ Network Status</SectionLabel>
                 {CONNECTIONS.map(c => (
                     <div key={c.label} style={{
                         display: "flex",
@@ -38,7 +45,7 @@ export default function ConnectionStatus() {
                 ))}
             </div>
 
-            {/* Ecosystem */}
+            {/* Ecosystem links */}
             <div>
                 <SectionLabel color="var(--text-muted)">◆ Ecosystem</SectionLabel>
                 {ECOSYSTEM.map(e => (
@@ -51,11 +58,15 @@ export default function ConnectionStatus() {
                         marginBottom: 5,
                         background: "rgba(255,255,255,0.02)",
                         border: "1px solid var(--border-white)",
-                        cursor: "pointer",
+                        cursor: e.ready ? "pointer" : "default",
                         transition: "background 0.2s",
                     }}
-                        onMouseEnter={e2 => e2.currentTarget.style.background = "rgba(255,255,255,0.04)"}
-                        onMouseLeave={e2 => e2.currentTarget.style.background = "rgba(255,255,255,0.02)"}
+                        onMouseEnter={e2 => {
+                            if (e.ready) e2.currentTarget.style.background = "rgba(255,255,255,0.04)";
+                        }}
+                        onMouseLeave={e2 => {
+                            e2.currentTarget.style.background = "rgba(255,255,255,0.02)";
+                        }}
                     >
                         <div>
                             <div style={{ fontSize: 12, color: "var(--text-primary)", fontWeight: 600 }}>

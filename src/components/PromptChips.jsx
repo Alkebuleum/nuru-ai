@@ -1,6 +1,12 @@
+import { useAuth } from "amvault-connect";
 import { PROMPT_CHIPS } from "../data/constants";
 
 export default function PromptChips({ onSelect, isMobile }) {
+    const { session } = useAuth();
+
+    // Hide chips when not signed in — no point suggesting actions they can't take
+    if (!session) return null;
+
     return (
         <div style={{
             padding: isMobile ? "0 16px 10px" : "0 28px 10px",
