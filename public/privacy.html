@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Nuru</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #050408; --gold: #F5B800; --violet: #A78BFA; --blue: #3B82F6;
+  --text: #ffffff; --muted: rgba(235,235,245,0.52); --dim: rgba(235,235,245,0.22);
+  --border: rgba(255,255,255,0.06);
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+body::after {
+  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px;
+  background: rgba(5,4,8,0.8); backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 800;
+  text-decoration: none; color: #fff;
+}
+.nav-back {
+  font-size: 13px; color: var(--muted); text-decoration: none;
+  display: flex; align-items: center; gap: 6px; transition: color 0.2s;
+}
+.nav-back:hover { color: #fff; }
+
+.page-wrap {
+  max-width: 780px; margin: 0 auto;
+  padding: 140px 48px 100px;
+  position: relative; z-index: 1;
+}
+
+.doc-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.4px;
+  text-transform: uppercase; color: var(--violet); margin-bottom: 16px;
+}
+.doc-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 5vw, 56px); font-weight: 800;
+  letter-spacing: -2px; line-height: 1.05; margin-bottom: 16px;
+}
+.doc-date { font-size: 13px; color: var(--dim); margin-bottom: 64px; }
+
+.info-box {
+  background: rgba(167,139,250,0.06);
+  border: 1px solid rgba(167,139,250,0.18);
+  border-radius: 16px; padding: 24px 28px; margin-bottom: 56px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.info-box p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+.info-box strong { color: var(--violet); font-weight: 600; }
+.info-icon {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.22);
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+
+.critical-box {
+  background: rgba(239,68,68,0.05);
+  border: 1px solid rgba(239,68,68,0.18);
+  border-radius: 16px; padding: 24px 28px; margin-bottom: 32px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.critical-box p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+.critical-box strong { color: #f87171; font-weight: 600; }
+.crit-icon {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.22);
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+
+.green-box {
+  background: rgba(170,255,69,0.04);
+  border: 1px solid rgba(170,255,69,0.15);
+  border-radius: 16px; padding: 24px 28px; margin-bottom: 32px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.green-box p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+.green-box strong { color: #AAFF45; font-weight: 600; }
+.green-icon {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  background: rgba(170,255,69,0.08); border: 1px solid rgba(170,255,69,0.18);
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+
+/* Table */
+.data-table {
+  width: 100%; border-collapse: collapse; margin-bottom: 20px;
+  font-size: 14px;
+}
+.data-table th {
+  text-align: left; padding: 12px 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700;
+  letter-spacing: 0.5px; color: rgba(255,255,255,0.5); text-transform: uppercase;
+}
+.data-table td {
+  padding: 12px 16px; border: 1px solid var(--border);
+  color: var(--muted); vertical-align: top;
+}
+.data-table tr:hover td { background: rgba(255,255,255,0.015); }
+
+.doc-section { margin-bottom: 52px; }
+.doc-section:last-child { margin-bottom: 0; }
+
+h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px; font-weight: 700; letter-spacing: -0.5px;
+  margin-bottom: 18px; color: #fff;
+  padding-bottom: 14px; border-bottom: 1px solid var(--border);
+}
+h2 .num { color: var(--dim); font-weight: 400; margin-right: 10px; font-size: 14px; }
+h3 {
+  font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700;
+  margin: 28px 0 10px; color: rgba(255,255,255,0.9);
+}
+p { color: var(--muted); margin-bottom: 14px; }
+p:last-child { margin-bottom: 0; }
+ul, ol { color: var(--muted); padding-left: 20px; margin-bottom: 14px; }
+li { margin-bottom: 8px; }
+strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+a { color: var(--violet); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.page-footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px; position: relative; z-index: 1;
+}
+.pf-logo {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 800;
+  text-decoration: none; color: #fff;
+}
+.pf-links { display: flex; gap: 20px; list-style: none; }
+.pf-links a { font-size: 12px; color: var(--dim); text-decoration: none; transition: color 0.2s; }
+.pf-links a:hover { color: #fff; }
+.pf-copy { width: 100%; font-size: 12px; color: var(--dim); }
+
+@media (max-width: 768px) {
+  nav { padding: 18px 20px; }
+  .page-wrap { padding: 120px 20px 80px; }
+  .page-footer { padding: 28px 20px; }
+  .data-table { font-size: 12px; }
+  .data-table th, .data-table td { padding: 10px 10px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg width="22" height="22" viewBox="0 0 30 30" fill="none">
+      <defs><linearGradient id="nlG" x1="15" y1="0" x2="15" y2="30" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F5B800"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient></defs>
+      <g stroke="url(#nlG)" stroke-width="1.8" stroke-linecap="round" opacity="0.75">
+        <line x1="15" y1="1" x2="15" y2="6"/><line x1="15" y1="24" x2="15" y2="29"/>
+        <line x1="1" y1="15" x2="6" y2="15"/><line x1="24" y1="15" x2="29" y2="15"/>
+        <line x1="4.4" y1="4.4" x2="8.2" y2="8.2"/><line x1="21.8" y1="21.8" x2="25.6" y2="25.6"/>
+        <line x1="25.6" y1="4.4" x2="21.8" y2="8.2"/><line x1="4.4" y1="25.6" x2="8.2" y2="21.8"/>
+      </g>
+      <circle cx="15" cy="15" r="4.5" fill="url(#nlG)"/>
+    </svg>
+    Nuru
+  </a>
+  <a href="/" class="nav-back">← Back to home</a>
+</nav>
+
+<main class="page-wrap">
+
+  <div class="doc-eyebrow">Legal</div>
+  <h1 class="doc-title">Privacy Policy</h1>
+  <p class="doc-date">Effective Date: April 20, 2025 &nbsp;·&nbsp; Last Updated: April 20, 2025</p>
+
+  <div class="info-box">
+    <div class="info-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#A78BFA" stroke-width="1.8" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <p><strong>Your privacy is foundational to Nuru.</strong> We are built on the principle of self-sovereignty — you own your identity and your data. This policy explains exactly what we collect, why we collect it, and what we will never touch. We keep it short because we have little to say: we don't collect what we don't need.</p>
+  </div>
+
+  <!-- 1 -->
+  <div class="doc-section">
+    <h2><span class="num">01</span>Who We Are</h2>
+    <p>Nuru ("we," "us," "our") operates the Nuru AI guide platform, the Nuru Wallet application, and the nuruai.org website (collectively, "the Services"). We are committed to protecting your personal information and your right to privacy.</p>
+    <p>If you have questions about this policy, please contact us at <a href="mailto:privacy@nuruai.org">privacy@nuruai.org</a>.</p>
+  </div>
+
+  <!-- 2 -->
+  <div class="doc-section">
+    <h2><span class="num">02</span>What We Never Collect</h2>
+
+    <div class="critical-box">
+      <div class="crit-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="11" width="18" height="11" rx="2" stroke="#f87171" stroke-width="1.8"/>
+          <path d="M7 11V7a5 5 0 0110 0v4" stroke="#f87171" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p><strong>Nuru never collects, stores, transmits, or has access to your private keys, seed phrases, master keys, wallet passwords, or any cryptographic secrets.</strong> These exist only on your device. We are architecturally unable to access them.</p>
+    </div>
+
+    <p>We also do not collect:</p>
+    <ul>
+      <li>Your wallet's private key or seed phrase — ever, under any circumstance.</li>
+      <li>The contents of transactions you have not explicitly shared with us.</li>
+      <li>Your on-chain asset balances beyond what is publicly visible on the blockchain.</li>
+      <li>Biometric data stored on your device (Face ID, fingerprint — these are handled by your OS, not us).</li>
+      <li>Sensitive personal data such as government ID numbers, social security numbers, or financial account credentials beyond what is required for optional AIN identity verification (see Section 4).</li>
+    </ul>
+  </div>
+
+  <!-- 3 -->
+  <div class="doc-section">
+    <h2><span class="num">03</span>What We Do Collect</h2>
+    <p>We collect the minimum data necessary to provide, improve, and secure the Services.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Data Type</th>
+          <th>What It Is</th>
+          <th>Why We Collect It</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Account information</strong></td>
+          <td>Email address (if you register), display name</td>
+          <td>Account creation and communication</td>
+        </tr>
+        <tr>
+          <td><strong>Wallet address</strong></td>
+          <td>Your public blockchain address (not your private key)</td>
+          <td>To associate your on-chain identity with app features</td>
+        </tr>
+        <tr>
+          <td><strong>AI conversation data</strong></td>
+          <td>Messages you send to the Nuru AI guide</td>
+          <td>To generate responses and improve AI quality</td>
+        </tr>
+        <tr>
+          <td><strong>Device & app data</strong></td>
+          <td>Device type, OS version, app version, crash reports</td>
+          <td>Bug fixing and performance optimization</td>
+        </tr>
+        <tr>
+          <td><strong>Usage data</strong></td>
+          <td>Feature interactions, session duration (anonymized)</td>
+          <td>To understand how the app is used and improve it</td>
+        </tr>
+        <tr>
+          <td><strong>Network/IP data</strong></td>
+          <td>IP address, general location (country/region)</td>
+          <td>Security, fraud prevention, legal compliance</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>What We Do Not Sell</h3>
+    <p>We do not sell, rent, or trade your personal information to any third party for advertising or commercial purposes. Full stop.</p>
+  </div>
+
+  <!-- 4 -->
+  <div class="doc-section">
+    <h2><span class="num">04</span>Identity Verification (AIN)</h2>
+    <p>If you choose to obtain an Alkebuleum Identity Number (AIN) or a physical Nuru Identity Card, you may be required to provide identity verification information such as your legal name, date of birth, or government-issued ID documents. This is an <strong>optional</strong> feature.</p>
+    <p>This information is:</p>
+    <ul>
+      <li>Collected solely for the purpose of issuing and verifying your on-chain digital identity credential.</li>
+      <li>Processed in accordance with applicable KYC/AML regulations.</li>
+      <li>Retained only as long as required by law or necessary to maintain your identity credential.</li>
+      <li>Not shared with third parties except as required by law or as necessary to provide the verification service (e.g., identity verification partners).</li>
+    </ul>
+    <p>The resulting AIN credential is stored on-chain as a cryptographic proof — it does not expose your raw personal data to the public blockchain.</p>
+  </div>
+
+  <!-- 5 -->
+  <div class="doc-section">
+    <h2><span class="num">05</span>AI Conversations</h2>
+    <p>When you interact with the Nuru AI guide, your messages are processed to generate responses. Please be aware of the following:</p>
+    <ul>
+      <li>Do not share private keys, seed phrases, passwords, or sensitive financial credentials in any AI conversation.</li>
+      <li>AI conversations may be reviewed by Nuru staff to improve model quality and safety, subject to strict internal access controls.</li>
+      <li>Conversation history may be stored to enable continuity across sessions. You can delete your conversation history at any time from within the app.</li>
+      <li>Nuru does not use your conversations to serve third-party advertisements.</li>
+    </ul>
+    <div class="green-box">
+      <div class="green-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M9 12l2 2 4-4" stroke="#AAFF45" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="12" r="9" stroke="#AAFF45" stroke-width="1.8"/>
+        </svg>
+      </div>
+      <p><strong>Reminder:</strong> Nuru will <strong>never</strong> ask you for your private key, seed phrase, or wallet password — in the AI chat or anywhere else. If something or someone claiming to be Nuru asks for these, it is a scam. Do not comply.</p>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="doc-section">
+    <h2><span class="num">06</span>Blockchain and On-Chain Data</h2>
+    <p>The Alkebuleum blockchain is a public, permissionless ledger. Certain actions you take — such as deploying your smart account, executing transactions, or registering a .alke name — are recorded on-chain and are permanently and publicly visible to anyone.</p>
+    <p>Nuru has no ability to delete, modify, or conceal on-chain records. Blockchain transactions are irreversible by design. You should be aware that:</p>
+    <ul>
+      <li>Your wallet address and transaction history are public on the blockchain.</li>
+      <li>On-chain credentials (such as your AIN or .alke name) are publicly associated with your wallet address.</li>
+      <li>Nuru does not control the blockchain and cannot remove information from it.</li>
+    </ul>
+  </div>
+
+  <!-- 7 -->
+  <div class="doc-section">
+    <h2><span class="num">07</span>Cookies and Tracking</h2>
+    <p>The nuruai.org website may use cookies and similar technologies for the following purposes:</p>
+    <ul>
+      <li><strong>Essential cookies:</strong> Required for the website to function correctly (e.g., session management).</li>
+      <li><strong>Analytics cookies:</strong> To understand aggregate usage patterns and improve the site. We use privacy-respecting analytics tools and do not use Google Analytics by default.</li>
+    </ul>
+    <p>We do not use advertising cookies, behavioral tracking pixels, or cross-site tracking technologies. You can control cookie settings through your browser preferences.</p>
+  </div>
+
+  <!-- 8 -->
+  <div class="doc-section">
+    <h2><span class="num">08</span>Third-Party Services</h2>
+    <p>The Services may interact with or link to third-party services, including:</p>
+    <ul>
+      <li>Blockchain RPC providers (to broadcast transactions to the Alkebuleum network).</li>
+      <li>Identity verification providers (for optional AIN issuance).</li>
+      <li>Cloud infrastructure providers (for app hosting and backend services).</li>
+    </ul>
+    <p>Each third-party provider is subject to its own privacy policy. We select providers that meet our privacy standards, but we are not responsible for their data practices. We do not share your personal data with third parties except as described in this policy or as required by law.</p>
+  </div>
+
+  <!-- 9 -->
+  <div class="doc-section">
+    <h2><span class="num">09</span>Data Retention</h2>
+    <p>We retain your personal data only as long as necessary to provide the Services or as required by applicable law:</p>
+    <ul>
+      <li>Account data is retained while your account is active and for a reasonable period after deletion as required by law.</li>
+      <li>AI conversation data is retained until you delete it or close your account, subject to legal hold requirements.</li>
+      <li>Identity verification data is retained as required by KYC/AML regulations (typically 5–7 years depending on jurisdiction).</li>
+      <li>Anonymized, aggregated analytics data may be retained indefinitely as it cannot be linked back to you.</li>
+    </ul>
+  </div>
+
+  <!-- 10 -->
+  <div class="doc-section">
+    <h2><span class="num">10</span>Your Rights</h2>
+    <p>Depending on your jurisdiction, you may have the following rights regarding your personal data:</p>
+    <ul>
+      <li><strong>Access:</strong> Request a copy of the personal data we hold about you.</li>
+      <li><strong>Correction:</strong> Request that inaccurate personal data be corrected.</li>
+      <li><strong>Deletion:</strong> Request deletion of your personal data, subject to legal retention requirements.</li>
+      <li><strong>Portability:</strong> Request your data in a structured, commonly used, machine-readable format.</li>
+      <li><strong>Objection:</strong> Object to certain types of data processing.</li>
+      <li><strong>Withdrawal of consent:</strong> Withdraw consent for processing where consent is the legal basis.</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at <a href="mailto:privacy@nuruai.org">privacy@nuruai.org</a>. We will respond within 30 days. Note that some rights may be limited by applicable law or legal obligations.</p>
+    <p><strong>Important:</strong> We cannot exercise rights over on-chain data on your behalf. Blockchain records are immutable and beyond any party's ability to delete or alter.</p>
+  </div>
+
+  <!-- 11 -->
+  <div class="doc-section">
+    <h2><span class="num">11</span>Children's Privacy</h2>
+    <p>The Services are not directed at children under the age of 18 (or the applicable age of majority in your jurisdiction). We do not knowingly collect personal data from minors. If you believe a minor has provided personal data to us, please contact us immediately at <a href="mailto:privacy@nuruai.org">privacy@nuruai.org</a> and we will take steps to delete that information.</p>
+  </div>
+
+  <!-- 12 -->
+  <div class="doc-section">
+    <h2><span class="num">12</span>Security</h2>
+    <p>We implement industry-standard technical and organizational security measures to protect the personal data we hold, including encryption in transit (TLS), encryption at rest, access controls, and regular security reviews.</p>
+    <p>However, no system is completely secure. We cannot guarantee that our security measures will prevent all unauthorized access. In the event of a data breach that affects your rights, we will notify you in accordance with applicable law.</p>
+    <p><strong>Remember:</strong> The most sensitive data — your private keys and seed phrase — never reach our servers. They are protected only by you and your device security. The safest information is the information we never see.</p>
+  </div>
+
+  <!-- 13 -->
+  <div class="doc-section">
+    <h2><span class="num">13</span>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. When we do, we will update the "Last Updated" date at the top of this page. For significant changes, we will provide notice through the app or via email. Continued use of the Services after changes are posted constitutes acceptance of the updated policy.</p>
+  </div>
+
+  <!-- 14 -->
+  <div class="doc-section">
+    <h2><span class="num">14</span>Contact Us</h2>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please reach out:</p>
+    <p><strong>Nuru — Privacy Team</strong><br>
+    Email: <a href="mailto:privacy@nuruai.org">privacy@nuruai.org</a><br>
+    Website: <a href="https://nuruai.org">nuruai.org</a></p>
+  </div>
+
+</main>
+
+<footer class="page-footer">
+  <a href="/" class="pf-logo">
+    <svg width="18" height="18" viewBox="0 0 30 30" fill="none">
+      <defs><linearGradient id="ftG" x1="15" y1="0" x2="15" y2="30" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F5B800"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient></defs>
+      <g stroke="url(#ftG)" stroke-width="1.8" stroke-linecap="round" opacity="0.6">
+        <line x1="15" y1="1" x2="15" y2="6"/><line x1="15" y1="24" x2="15" y2="29"/>
+        <line x1="1" y1="15" x2="6" y2="15"/><line x1="24" y1="15" x2="29" y2="15"/>
+      </g>
+      <circle cx="15" cy="15" r="4" fill="url(#ftG)"/>
+    </svg>
+    Nuru
+  </a>
+  <ul class="pf-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="privacy.html">Privacy Policy</a></li>
+    <li><a href="terms.html">Terms of Service</a></li>
+  </ul>
+  <p class="pf-copy">© 2025 Nuru · AI Guide for Identity &amp; Finance · Built on Alkebuleum</p>
+</footer>
+
+</body>
+</html>
