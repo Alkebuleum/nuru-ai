@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Nuru</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #050408; --gold: #F5B800; --violet: #A78BFA; --blue: #3B82F6;
+  --text: #ffffff; --muted: rgba(235,235,245,0.52); --dim: rgba(235,235,245,0.22);
+  --border: rgba(255,255,255,0.06);
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+body::after {
+  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px;
+  background: rgba(5,4,8,0.8); backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 800;
+  text-decoration: none; color: #fff;
+}
+.nav-back {
+  font-size: 13px; color: var(--muted); text-decoration: none;
+  display: flex; align-items: center; gap: 6px;
+  transition: color 0.2s;
+}
+.nav-back:hover { color: #fff; }
+
+/* LAYOUT */
+.page-wrap {
+  max-width: 780px; margin: 0 auto;
+  padding: 140px 48px 100px;
+  position: relative; z-index: 1;
+}
+
+/* HEADER */
+.doc-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.4px;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 16px;
+}
+.doc-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 5vw, 56px); font-weight: 800;
+  letter-spacing: -2px; line-height: 1.05;
+  margin-bottom: 16px;
+}
+.doc-date {
+  font-size: 13px; color: var(--dim); margin-bottom: 64px;
+}
+
+/* WARNING BOX */
+.warn-box {
+  background: rgba(245,184,0,0.06);
+  border: 1px solid rgba(245,184,0,0.2);
+  border-radius: 16px; padding: 24px 28px;
+  margin-bottom: 56px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.warn-icon {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  background: rgba(245,184,0,0.12); border: 1px solid rgba(245,184,0,0.25);
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+.warn-box p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+.warn-box strong { color: var(--gold); font-weight: 600; }
+
+/* CRITICAL BOX */
+.critical-box {
+  background: rgba(239,68,68,0.05);
+  border: 1px solid rgba(239,68,68,0.18);
+  border-radius: 16px; padding: 24px 28px;
+  margin-bottom: 32px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.critical-box p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+.critical-box strong { color: #f87171; font-weight: 600; }
+.crit-icon {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.22);
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+
+/* SECTIONS */
+.doc-section { margin-bottom: 52px; }
+.doc-section:last-child { margin-bottom: 0; }
+
+h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px; font-weight: 700; letter-spacing: -0.5px;
+  margin-bottom: 18px; color: #fff;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+h2 .num {
+  color: var(--dim); font-weight: 400; margin-right: 10px;
+  font-size: 14px;
+}
+h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px; font-weight: 700;
+  margin: 28px 0 10px; color: rgba(255,255,255,0.9);
+}
+p { color: var(--muted); margin-bottom: 14px; }
+p:last-child { margin-bottom: 0; }
+ul, ol {
+  color: var(--muted); padding-left: 20px; margin-bottom: 14px;
+}
+li { margin-bottom: 8px; }
+strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+a { color: var(--violet); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* DIVIDER */
+hr { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+
+/* FOOTER */
+.page-footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px; position: relative; z-index: 1;
+}
+.pf-logo {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 800;
+  text-decoration: none; color: #fff;
+}
+.pf-links { display: flex; gap: 20px; list-style: none; }
+.pf-links a { font-size: 12px; color: var(--dim); text-decoration: none; transition: color 0.2s; }
+.pf-links a:hover { color: #fff; }
+.pf-copy { width: 100%; font-size: 12px; color: var(--dim); }
+
+@media (max-width: 768px) {
+  nav { padding: 18px 20px; }
+  .page-wrap { padding: 120px 20px 80px; }
+  .page-footer { padding: 28px 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg width="22" height="22" viewBox="0 0 30 30" fill="none">
+      <defs><linearGradient id="nlG" x1="15" y1="0" x2="15" y2="30" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F5B800"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient></defs>
+      <g stroke="url(#nlG)" stroke-width="1.8" stroke-linecap="round" opacity="0.75">
+        <line x1="15" y1="1" x2="15" y2="6"/><line x1="15" y1="24" x2="15" y2="29"/>
+        <line x1="1" y1="15" x2="6" y2="15"/><line x1="24" y1="15" x2="29" y2="15"/>
+        <line x1="4.4" y1="4.4" x2="8.2" y2="8.2"/><line x1="21.8" y1="21.8" x2="25.6" y2="25.6"/>
+        <line x1="25.6" y1="4.4" x2="21.8" y2="8.2"/><line x1="4.4" y1="25.6" x2="8.2" y2="21.8"/>
+      </g>
+      <circle cx="15" cy="15" r="4.5" fill="url(#nlG)"/>
+    </svg>
+    Nuru
+  </a>
+  <a href="/" class="nav-back">← Back to home</a>
+</nav>
+
+<main class="page-wrap">
+
+  <div class="doc-eyebrow">Legal</div>
+  <h1 class="doc-title">Terms of Service</h1>
+  <p class="doc-date">Effective Date: April 20, 2025 &nbsp;·&nbsp; Last Updated: April 20, 2025</p>
+
+  <div class="warn-box">
+    <div class="warn-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke="#F5B800" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <p><strong>Please read these terms carefully.</strong> By accessing or using Nuru or the Nuru Wallet, you agree to be bound by these Terms of Service. If you do not agree, do not use our services. These terms contain critical limitations on our liability and important disclosures about self-custody risk.</p>
+  </div>
+
+  <!-- 1 -->
+  <div class="doc-section">
+    <h2><span class="num">01</span>Acceptance of Terms</h2>
+    <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("User," "you," or "your") and Nuru ("Nuru," "we," "us," or "our") governing your access to and use of the Nuru platform, the Nuru AI guide, the Nuru Wallet application, and all related services (collectively, the "Services").</p>
+    <p>By downloading, installing, or using any part of our Services, you represent that you are at least 18 years of age (or the age of majority in your jurisdiction), have the legal capacity to enter into these Terms, and agree to be bound by them in their entirety.</p>
+  </div>
+
+  <!-- 2 -->
+  <div class="doc-section">
+    <h2><span class="num">02</span>Nature of the Service — Guide, Not Advisor</h2>
+
+    <div class="warn-box" style="margin-bottom:20px;">
+      <div class="warn-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" stroke="#F5B800" stroke-width="1.8"/>
+          <path d="M12 8v4m0 4h.01" stroke="#F5B800" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p><strong>Nuru is an AI-powered informational guide — not a financial advisor, investment advisor, legal advisor, or licensed broker.</strong> Nothing Nuru says, suggests, displays, or generates constitutes financial, investment, legal, tax, or professional advice of any kind.</p>
+    </div>
+
+    <p>Nuru is designed to help you understand identity systems, decentralized finance concepts, blockchain technology, and the Alkebuleum ecosystem. All content provided by Nuru — including explanations, summaries, recommendations, and data — is for <strong>general informational and educational purposes only</strong>.</p>
+    <p>You should not make financial, legal, or investment decisions based solely on information provided by Nuru. Always consult a qualified and licensed professional before making financial or legal decisions. Past performance of any asset is not indicative of future results. Cryptocurrency and digital asset markets are highly volatile and speculative.</p>
+    <p>Nuru does not predict markets, guarantee returns, or recommend specific trades, tokens, or investment strategies. Any examples shown within the Nuru interface are illustrative only.</p>
+  </div>
+
+  <!-- 3 -->
+  <div class="doc-section">
+    <h2><span class="num">03</span>Self-Custody — You Control Your Keys</h2>
+
+    <div class="critical-box">
+      <div class="crit-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="11" width="18" height="11" rx="2" stroke="#f87171" stroke-width="1.8"/>
+          <path d="M7 11V7a5 5 0 0110 0v4" stroke="#f87171" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p><strong>Nuru never has access to your private keys, seed phrases, master keys, or wallet credentials — ever.</strong> We cannot view them, recover them, reset them, or act on your behalf without your explicit cryptographic authorization. You are the sole custodian of your keys and your funds.</p>
+    </div>
+
+    <p>The Nuru Wallet is a <strong>self-custodial wallet</strong>. This means:</p>
+    <ul>
+      <li>Your private keys and seed phrase are generated and stored locally on your device.</li>
+      <li>Nuru's servers never receive, store, or transmit your private keys or seed phrase in any form.</li>
+      <li>No Nuru employee, agent, or system can access your wallet, move your funds, or recover your credentials.</li>
+      <li>You bear full, sole, and exclusive responsibility for the security and safeguarding of your private keys, seed phrase, master key, and wallet credentials.</li>
+    </ul>
+
+    <h3>Your Responsibilities</h3>
+    <p>You must protect your private keys and seed phrase at all times. This includes but is not limited to:</p>
+    <ul>
+      <li>Writing down your seed phrase on physical paper and storing it in a secure, private location.</li>
+      <li>Never entering your seed phrase or private key into any website, application, or system other than your Nuru Wallet.</li>
+      <li>Never sharing your seed phrase, private keys, or wallet credentials with any person or entity — including anyone claiming to be Nuru support.</li>
+      <li>Ensuring your device is secured with a strong PIN, password, or biometric lock.</li>
+      <li>Using updated operating system and application software to minimize security vulnerabilities.</li>
+    </ul>
+
+    <p><strong>If your private key or seed phrase is lost, stolen, or compromised, Nuru has no ability to restore access to your wallet or recover your funds.</strong> Loss of your keys means permanent, irreversible loss of access to all assets held in that wallet.</p>
+  </div>
+
+  <!-- 4 -->
+  <div class="doc-section">
+    <h2><span class="num">04</span>Recovery Guardians — Optional Feature, No Guarantees</h2>
+
+    <p>The Nuru Wallet includes an <strong>optional</strong> Recovery Guardian feature powered by the ERC-4337 smart account architecture. This feature is entirely voluntary. You are not required to set up guardians to use the Nuru Wallet.</p>
+
+    <h3>What Guardians Are</h3>
+    <p>Recovery Guardians are trusted contacts — people or devices you designate — who may assist in a wallet recovery process under specific contractual conditions defined by your smart account's on-chain logic. Guardians do not hold your funds or keys; they hold a cryptographic role in a multi-party recovery scheme.</p>
+
+    <h3>Critical Limitations of the Guardian System</h3>
+
+    <div class="critical-box">
+      <div class="crit-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#f87171" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M12 8v4m0 4h.01" stroke="#f87171" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p><strong>Recovery Guardians are not a guaranteed recovery mechanism.</strong> Nuru makes no representation, warranty, or promise that the Guardian system will successfully recover your wallet under any circumstance. The system's outcome depends entirely on the logic encoded in your smart account contract at the time of deployment.</p>
+    </div>
+
+    <p>You must understand and accept the following limitations before enabling guardians:</p>
+    <ul>
+      <li><strong>If your master key (private key / seed phrase) is compromised</strong> — meaning a malicious actor already controls it — guardians have limited or no ability to prevent that actor from draining your funds before any recovery threshold is reached. Smart contract recovery processes are time-delayed by design, but a compromised master key may allow an attacker to act before guardians can intervene.</li>
+      <li>The recovery process depends on your guardians being available, willing, and able to respond in the required timeframe. Nuru has no control over your guardians' actions or availability.</li>
+      <li>Smart contract bugs, network congestion, gas costs, or blockchain forks could affect the execution or outcome of a recovery transaction.</li>
+      <li>Guardian recovery operates on-chain. Transactions are irreversible once confirmed. Errors in the recovery process cannot be undone.</li>
+      <li>Nuru does not manage, verify, or supervise your guardians. You are solely responsible for selecting trustworthy guardians and maintaining those relationships.</li>
+    </ul>
+
+    <p><strong>The Guardian feature is a supplementary safeguard, not a replacement for proper key security.</strong> Your first and most important line of defense is protecting your master key. Do not rely on guardians as a substitute for secure key management.</p>
+  </div>
+
+  <!-- 5 -->
+  <div class="doc-section">
+    <h2><span class="num">05</span>Smart Contract and Blockchain Risk</h2>
+    <p>The Nuru Wallet relies on smart contracts deployed on the Alkebuleum blockchain network. By using the wallet, you acknowledge and accept the following risks:</p>
+    <ul>
+      <li><strong>Smart contract risk:</strong> Smart contracts may contain bugs, vulnerabilities, or unforeseen logic errors. Nuru audits its contracts to the best of its ability but cannot guarantee they are free of defects.</li>
+      <li><strong>Irreversibility:</strong> Blockchain transactions, once confirmed, are permanent and cannot be reversed, altered, or cancelled. Always verify transaction details before signing.</li>
+      <li><strong>Network risk:</strong> Blockchain networks may experience downtime, forks, congestion, or protocol changes that affect the availability or behavior of the wallet.</li>
+      <li><strong>Gas fees:</strong> Transactions on any blockchain network require network fees ("gas") that fluctuate based on network demand. Nuru does not control or subsidize these fees except where explicitly stated.</li>
+      <li><strong>Regulatory risk:</strong> The regulatory landscape for digital assets and blockchain technology is evolving. Laws in your jurisdiction may restrict or prohibit certain activities available through the Nuru Wallet.</li>
+    </ul>
+  </div>
+
+  <!-- 6 -->
+  <div class="doc-section">
+    <h2><span class="num">06</span>Prohibited Activities</h2>
+    <p>You agree not to use the Services for any of the following:</p>
+    <ul>
+      <li>Any activity that violates applicable local, national, or international laws or regulations.</li>
+      <li>Money laundering, terrorist financing, fraud, or any other financial crime.</li>
+      <li>Attempting to gain unauthorized access to any part of our systems or infrastructure.</li>
+      <li>Interfering with or disrupting the integrity or performance of the Services.</li>
+      <li>Using the AI guide to generate or spread misinformation, or to deceive others.</li>
+      <li>Attempting to reverse-engineer, decompile, or extract the source code of the Nuru application beyond what is expressly permitted by open-source licenses.</li>
+    </ul>
+  </div>
+
+  <!-- 7 -->
+  <div class="doc-section">
+    <h2><span class="num">07</span>Disclaimer of Warranties</h2>
+    <p>THE SERVICES ARE PROVIDED ON AN <strong>"AS IS"</strong> AND <strong>"AS AVAILABLE"</strong> BASIS WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMITTED BY LAW, NURU EXPRESSLY DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO:</p>
+    <ul>
+      <li>WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.</li>
+      <li>ANY WARRANTY THAT THE SERVICES WILL BE UNINTERRUPTED, ERROR-FREE, OR FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS.</li>
+      <li>ANY WARRANTY REGARDING THE ACCURACY, RELIABILITY, OR COMPLETENESS OF ANY INFORMATION PROVIDED BY THE NURU AI GUIDE.</li>
+      <li>ANY WARRANTY THAT THE GUARDIAN RECOVERY SYSTEM WILL SUCCESSFULLY RECOVER YOUR WALLET OR PREVENT LOSS OF FUNDS.</li>
+    </ul>
+  </div>
+
+  <!-- 8 -->
+  <div class="doc-section">
+    <h2><span class="num">08</span>Limitation of Liability</h2>
+    <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL NURU, ITS AFFILIATES, DIRECTORS, OFFICERS, EMPLOYEES, AGENTS, LICENSORS, OR SERVICE PROVIDERS BE LIABLE FOR ANY:</p>
+    <ul>
+      <li>INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES.</li>
+      <li>LOSS OF PROFITS, REVENUE, DATA, BUSINESS, OR GOODWILL.</li>
+      <li>LOSS OF CRYPTOCURRENCY, DIGITAL ASSETS, OR ANY OTHER FINANCIAL LOSS ARISING FROM YOUR USE OF THE SERVICES.</li>
+      <li>LOSS RESULTING FROM UNAUTHORIZED ACCESS TO OR COMPROMISE OF YOUR PRIVATE KEYS, SEED PHRASE, OR WALLET CREDENTIALS.</li>
+      <li>LOSS RESULTING FROM GUARDIAN RECOVERY FAILURE, SMART CONTRACT BUGS, BLOCKCHAIN NETWORK FAILURES, OR GAS FEE FLUCTUATIONS.</li>
+    </ul>
+    <p>THESE LIMITATIONS APPLY WHETHER THE CLAIM IS BASED ON WARRANTY, CONTRACT, TORT, STATUTE, OR ANY OTHER LEGAL THEORY, AND REGARDLESS OF WHETHER NURU HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+  </div>
+
+  <!-- 9 -->
+  <div class="doc-section">
+    <h2><span class="num">09</span>Indemnification</h2>
+    <p>You agree to indemnify, defend, and hold harmless Nuru and its affiliates, officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, costs, and expenses (including reasonable attorneys' fees) arising out of or related to:</p>
+    <ul>
+      <li>Your use of the Services in violation of these Terms.</li>
+      <li>Your loss of, or failure to secure, your private keys, seed phrase, or wallet credentials.</li>
+      <li>Your violation of any applicable law or regulation.</li>
+      <li>Any dispute between you and a third party, including your designated guardians.</li>
+    </ul>
+  </div>
+
+  <!-- 10 -->
+  <div class="doc-section">
+    <h2><span class="num">10</span>Intellectual Property</h2>
+    <p>The Nuru name, logo, AI model, interface designs, and related materials are the intellectual property of Nuru and its licensors. You are granted a limited, non-exclusive, non-transferable, revocable license to use the Services for personal, non-commercial purposes in accordance with these Terms.</p>
+    <p>Open-source components included in the Nuru Wallet are subject to their respective open-source licenses.</p>
+  </div>
+
+  <!-- 11 -->
+  <div class="doc-section">
+    <h2><span class="num">11</span>Modifications to the Services and Terms</h2>
+    <p>Nuru reserves the right to modify, suspend, or discontinue any part of the Services at any time, with or without notice. We also reserve the right to update these Terms at any time. When we do, we will update the "Last Updated" date above. Continued use of the Services after changes are posted constitutes your acceptance of the revised Terms.</p>
+  </div>
+
+  <!-- 12 -->
+  <div class="doc-section">
+    <h2><span class="num">12</span>Governing Law and Dispute Resolution</h2>
+    <p>These Terms shall be governed by and construed in accordance with applicable law. Any dispute arising from these Terms or your use of the Services shall first be attempted to be resolved through good-faith negotiation. If unresolved, disputes shall be submitted to binding arbitration in accordance with applicable arbitration rules.</p>
+    <p>You waive any right to participate in a class action lawsuit or class-wide arbitration against Nuru.</p>
+  </div>
+
+  <!-- 13 -->
+  <div class="doc-section">
+    <h2><span class="num">13</span>Contact</h2>
+    <p>If you have questions about these Terms, please contact us at:</p>
+    <p><strong>Nuru</strong><br>
+    Email: <a href="mailto:legal@nuruai.org">legal@nuruai.org</a><br>
+    Website: <a href="https://nuruai.org">nuruai.org</a></p>
+  </div>
+
+</main>
+
+<footer class="page-footer">
+  <a href="/" class="pf-logo">
+    <svg width="18" height="18" viewBox="0 0 30 30" fill="none">
+      <defs><linearGradient id="ftG" x1="15" y1="0" x2="15" y2="30" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F5B800"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient></defs>
+      <g stroke="url(#ftG)" stroke-width="1.8" stroke-linecap="round" opacity="0.6">
+        <line x1="15" y1="1" x2="15" y2="6"/><line x1="15" y1="24" x2="15" y2="29"/>
+        <line x1="1" y1="15" x2="6" y2="15"/><line x1="24" y1="15" x2="29" y2="15"/>
+      </g>
+      <circle cx="15" cy="15" r="4" fill="url(#ftG)"/>
+    </svg>
+    Nuru
+  </a>
+  <ul class="pf-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="privacy.html">Privacy Policy</a></li>
+    <li><a href="terms.html">Terms of Service</a></li>
+  </ul>
+  <p class="pf-copy">© 2025 Nuru · AI Guide for Identity &amp; Finance · Built on Alkebuleum</p>
+</footer>
+
+</body>
+</html>
