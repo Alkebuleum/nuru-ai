@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="g" x1="32" y1="0" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F5B800"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0e0c16"/>
+      <stop offset="100%" stop-color="#050408"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+
+  <!-- Rays (8-point compass) -->
+  <g stroke="url(#g)" stroke-width="2.8" stroke-linecap="round" opacity="0.85">
+    <line x1="32" y1="6"  x2="32" y2="17"/>
+    <line x1="32" y1="47" x2="32" y2="58"/>
+    <line x1="6"  y1="32" x2="17" y2="32"/>
+    <line x1="47" y1="32" x2="58" y2="32"/>
+    <line x1="13" y1="13" x2="20" y2="20"/>
+    <line x1="44" y1="44" x2="51" y2="51"/>
+    <line x1="51" y1="13" x2="44" y2="20"/>
+    <line x1="13" y1="51" x2="20" y2="44"/>
+  </g>
+
+  <!-- Core dot -->
+  <circle cx="32" cy="32" r="9" fill="url(#g)"/>
+</svg>
