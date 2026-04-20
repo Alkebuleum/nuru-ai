@@ -141,11 +141,6 @@ export default function App() {
       ctx.lineWidth   = 1.5 * window.devicePixelRatio;
       ctx.stroke();
 
-      ctx.fillStyle    = 'rgba(255,255,255,0.95)';
-      ctx.font         = `800 ${coreR * 0.9}px 'Syne', sans-serif`;
-      ctx.textAlign    = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText('N', ox, oy + coreR * 0.06);
 
       // Pulse ring
       const pa = (Math.sin(t * 2) * 0.5 + 0.5) * 0.25;

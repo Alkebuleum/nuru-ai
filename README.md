@@ -72,6 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Deploy Future Changes
 git add .
-git commit -m "redesign as landing page for Nuru"
+git commit -m "added policy and terms"
 git push
 npm run deploy
+
