@@ -72,7 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Deploy Future Changes
 git add .
-git commit -m "added policy and terms"
+git commit -m "additiona update"
 git push
 npm run deploy
 

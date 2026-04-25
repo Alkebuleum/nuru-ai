@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<title>Delete Account — Nuru</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #050408; --gold: #F5B800; --violet: #A78BFA; --blue: #3B82F6;
+  --text: #ffffff; --muted: rgba(235,235,245,0.52); --dim: rgba(235,235,245,0.22);
+  --border: rgba(255,255,255,0.06);
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+body::after {
+  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px;
+  background: rgba(5,4,8,0.8); backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 800;
+  text-decoration: none; color: #fff;
+}
+.nav-back {
+  font-size: 13px; color: var(--muted); text-decoration: none;
+  display: flex; align-items: center; gap: 6px; transition: color 0.2s;
+}
+.nav-back:hover { color: #fff; }
+
+.page-wrap {
+  max-width: 780px; margin: 0 auto;
+  padding: 140px 48px 100px;
+  position: relative; z-index: 1;
+}
+
+.doc-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.4px;
+  text-transform: uppercase; color: #f87171; margin-bottom: 16px;
+}
+.doc-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 5vw, 56px); font-weight: 800;
+  letter-spacing: -2px; line-height: 1.05; margin-bottom: 16px;
+}
+.doc-date { font-size: 13px; color: var(--dim); margin-bottom: 64px; }
+
+.info-box {
+  background: rgba(167,139,250,0.06);
+  border: 1px solid rgba(167,139,250,0.18);
+  border-radius: 16px; padding: 24px 28px; margin-bottom: 56px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.info-box p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+.info-box strong { color: var(--violet); font-weight: 600; }
+.info-icon {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.22);
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+
+.warn-box {
+  background: rgba(245,184,0,0.05);
+  border: 1px solid rgba(245,184,0,0.2);
+  border-radius: 16px; padding: 24px 28px; margin-bottom: 32px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.warn-box p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+.warn-box strong { color: var(--gold); font-weight: 600; }
+.warn-icon {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  background: rgba(245,184,0,0.08); border: 1px solid rgba(245,184,0,0.22);
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+
+.critical-box {
+  background: rgba(239,68,68,0.05);
+  border: 1px solid rgba(239,68,68,0.18);
+  border-radius: 16px; padding: 24px 28px; margin-bottom: 32px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.critical-box p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+.critical-box strong { color: #f87171; font-weight: 600; }
+.crit-icon {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.22);
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+
+/* Request card */
+.request-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px; padding: 36px 40px; margin: 40px 0;
+}
+.request-card h3 {
+  font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700;
+  margin-bottom: 24px; color: #fff; letter-spacing: -0.3px;
+}
+.step-list { list-style: none; padding: 0; margin-bottom: 28px; }
+.step-list li {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 14px 0; border-bottom: 1px solid var(--border);
+  color: var(--muted); font-size: 14px; line-height: 1.6;
+}
+.step-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.step-num {
+  width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+  background: rgba(167,139,250,0.12); border: 1px solid rgba(167,139,250,0.25);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700;
+  color: var(--violet); margin-top: 1px;
+}
+.step-list strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+
+.email-button {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3);
+  border-radius: 12px; padding: 14px 24px;
+  font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700;
+  color: #f87171; text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.email-button:hover {
+  background: rgba(239,68,68,0.18); border-color: rgba(239,68,68,0.5);
+  color: #fca5a5; text-decoration: none;
+}
+
+.doc-section { margin-bottom: 52px; }
+.doc-section:last-child { margin-bottom: 0; }
+
+h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px; font-weight: 700; letter-spacing: -0.5px;
+  margin-bottom: 18px; color: #fff;
+  padding-bottom: 14px; border-bottom: 1px solid var(--border);
+}
+h2 .num { color: var(--dim); font-weight: 400; margin-right: 10px; font-size: 14px; }
+h3 {
+  font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700;
+  margin: 28px 0 10px; color: rgba(255,255,255,0.9);
+}
+p { color: var(--muted); margin-bottom: 14px; }
+p:last-child { margin-bottom: 0; }
+ul, ol { color: var(--muted); padding-left: 20px; margin-bottom: 14px; }
+li { margin-bottom: 8px; }
+strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+a { color: var(--violet); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Data scope table */
+.data-table {
+  width: 100%; border-collapse: collapse; margin-bottom: 20px;
+  font-size: 14px;
+}
+.data-table th {
+  text-align: left; padding: 12px 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700;
+  letter-spacing: 0.5px; color: rgba(255,255,255,0.5); text-transform: uppercase;
+}
+.data-table td {
+  padding: 12px 16px; border: 1px solid var(--border);
+  color: var(--muted); vertical-align: top;
+}
+.data-table tr:hover td { background: rgba(255,255,255,0.015); }
+.badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.4px;
+  padding: 3px 9px; border-radius: 20px;
+}
+.badge-del { background: rgba(239,68,68,0.1); color: #f87171; border: 1px solid rgba(239,68,68,0.25); }
+.badge-keep { background: rgba(245,184,0,0.08); color: var(--gold); border: 1px solid rgba(245,184,0,0.22); }
+.badge-chain { background: rgba(59,130,246,0.08); color: var(--blue); border: 1px solid rgba(59,130,246,0.22); }
+
+.page-footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px; position: relative; z-index: 1;
+}
+.pf-logo {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 800;
+  text-decoration: none; color: #fff;
+}
+.pf-links { display: flex; gap: 20px; list-style: none; }
+.pf-links a { font-size: 12px; color: var(--dim); text-decoration: none; transition: color 0.2s; }
+.pf-links a:hover { color: #fff; }
+.pf-copy { width: 100%; font-size: 12px; color: var(--dim); }
+
+@media (max-width: 768px) {
+  nav { padding: 18px 20px; }
+  .page-wrap { padding: 120px 20px 80px; }
+  .page-footer { padding: 28px 20px; }
+  .request-card { padding: 24px 20px; }
+  .data-table { font-size: 12px; }
+  .data-table th, .data-table td { padding: 10px 10px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg width="22" height="22" viewBox="0 0 30 30" fill="none">
+      <defs><linearGradient id="nlG" x1="15" y1="0" x2="15" y2="30" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F5B800"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient></defs>
+      <g stroke="url(#nlG)" stroke-width="1.8" stroke-linecap="round" opacity="0.75">
+        <line x1="15" y1="1" x2="15" y2="6"/><line x1="15" y1="24" x2="15" y2="29"/>
+        <line x1="1" y1="15" x2="6" y2="15"/><line x1="24" y1="15" x2="29" y2="15"/>
+        <line x1="4.4" y1="4.4" x2="8.2" y2="8.2"/><line x1="21.8" y1="21.8" x2="25.6" y2="25.6"/>
+        <line x1="25.6" y1="4.4" x2="21.8" y2="8.2"/><line x1="4.4" y1="25.6" x2="8.2" y2="21.8"/>
+      </g>
+      <circle cx="15" cy="15" r="4.5" fill="url(#nlG)"/>
+    </svg>
+    Nuru
+  </a>
+  <a href="/" class="nav-back">← Back to home</a>
+</nav>
+
+<main class="page-wrap">
+
+  <div class="doc-eyebrow">Account &amp; Data</div>
+  <h1 class="doc-title">Delete Your Account</h1>
+  <p class="doc-date">How to request deletion of your Nuru account and associated data</p>
+
+  <div class="info-box">
+    <div class="info-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#A78BFA" stroke-width="1.8" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <p><strong>You own your data.</strong> If you want to delete your Nuru account and the personal data we hold, you can request this at any time by emailing us. We will process your request promptly and confirm once deletion is complete.</p>
+  </div>
+
+  <!-- How to request -->
+  <div class="doc-section">
+    <h2><span class="num">01</span>How to Request Deletion</h2>
+    <p>Account deletion is handled by email. There is no automated in-app flow — we review each request manually to confirm your identity and prevent unauthorized deletion.</p>
+
+    <div class="request-card">
+      <h3>Send a deletion request</h3>
+      <ol class="step-list">
+        <li>
+          <span class="step-num">1</span>
+          <span>Email <strong>info@alkebuleum.org</strong> from the address associated with your Nuru account (if you registered with email).</span>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <span>Use the subject line: <strong>Delete Nuru Account</strong></span>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <span>In the body, include the <strong>email address or wallet address</strong> associated with your account so we can locate your records.</span>
+        </li>
+        <li>
+          <span class="step-num">4</span>
+          <span>We will confirm receipt and complete the deletion within <strong>30 days</strong>, sending a confirmation to your email when done.</span>
+        </li>
+      </ol>
+      <a href="mailto:info@alkebuleum.org?subject=Delete%20Nuru%20Account" class="email-button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="4" width="20" height="16" rx="2" stroke="#f87171" stroke-width="1.8"/>
+          <path d="M2 7l10 7 10-7" stroke="#f87171" stroke-width="1.8" stroke-linejoin="round"/>
+        </svg>
+        Email info@alkebuleum.org
+      </a>
+    </div>
+  </div>
+
+  <!-- What gets deleted -->
+  <div class="doc-section">
+    <h2><span class="num">02</span>What We Delete</h2>
+    <p>When your deletion request is processed, we remove all personal data we hold about you from our servers, subject to the exceptions described in the next section.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>What It Includes</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Account profile</strong></td>
+          <td>Email address, display name, account preferences</td>
+          <td><span class="badge badge-del">Deleted</span></td>
+        </tr>
+        <tr>
+          <td><strong>AI conversation history</strong></td>
+          <td>Messages and responses stored from Nuru AI guide sessions</td>
+          <td><span class="badge badge-del">Deleted</span></td>
+        </tr>
+        <tr>
+          <td><strong>Recovery records</strong></td>
+          <td>Social recovery guardian lists and wallet recovery metadata stored on our servers</td>
+          <td><span class="badge badge-del">Deleted</span></td>
+        </tr>
+        <tr>
+          <td><strong>App-related server data</strong></td>
+          <td>Device tokens, session data, push notification identifiers</td>
+          <td><span class="badge badge-del">Deleted</span></td>
+        </tr>
+        <tr>
+          <td><strong>Blockchain transaction records</strong></td>
+          <td>On-chain transactions, wallet addresses, .alke names recorded on the public ledger</td>
+          <td><span class="badge badge-chain">Cannot be deleted — public blockchain</span></td>
+        </tr>
+        <tr>
+          <td><strong>Legal &amp; compliance records</strong></td>
+          <td>Data required by KYC/AML laws, fraud prevention, or active legal obligations</td>
+          <td><span class="badge badge-keep">Retained as required by law</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Blockchain note -->
+  <div class="doc-section">
+    <h2><span class="num">03</span>Blockchain Records Cannot Be Deleted</h2>
+
+    <div class="critical-box">
+      <div class="crit-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke="#f87171" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <p><strong>On-chain data is permanent.</strong> Any transactions you have executed, wallet addresses you have used, on-chain credentials (such as your AIN), and .alke names registered on the Alkebuleum blockchain are public records on a permissionless ledger. Nuru has no ability to delete, modify, or conceal these records — no party does.</p>
+    </div>
+
+    <p>This is a fundamental property of public blockchains, not a policy choice. You should be aware before transacting on-chain that those records will exist permanently and publicly.</p>
+  </div>
+
+  <!-- Data we may retain -->
+  <div class="doc-section">
+    <h2><span class="num">04</span>Data We May Retain After Deletion</h2>
+
+    <div class="warn-box">
+      <div class="warn-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" stroke="#F5B800" stroke-width="1.8"/>
+          <path d="M12 8v4m0 4h.01" stroke="#F5B800" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p><strong>Some records may be retained</strong> after your deletion request if required for security investigation, fraud prevention, or compliance with applicable laws and regulations. We will only retain the minimum necessary and will not use retained data for any other purpose.</p>
+    </div>
+
+    <p>Specific cases where we may retain data:</p>
+    <ul>
+      <li><strong>Active fraud investigation:</strong> If your account is subject to an open investigation, relevant records may be held until the investigation concludes.</li>
+      <li><strong>Legal obligation:</strong> Certain jurisdictions require us to retain identity verification data for 5–7 years under KYC/AML regulations.</li>
+      <li><strong>Dispute resolution:</strong> If there is an outstanding dispute, claim, or legal proceeding involving your account.</li>
+      <li><strong>Aggregated anonymized data:</strong> Analytics that cannot be linked back to you individually are not subject to deletion.</li>
+    </ul>
+    <p>Where retention is required, we will inform you of the reason and estimated retention period in our deletion confirmation email.</p>
+  </div>
+
+  <!-- Contact -->
+  <div class="doc-section">
+    <h2><span class="num">05</span>Questions or Other Privacy Requests</h2>
+    <p>Deletion is one of several rights you may have over your personal data. You can also request a copy of your data, corrections to inaccurate data, or object to specific types of processing. For any privacy-related request:</p>
+    <p>
+      Email: <a href="mailto:privacy@nuruai.org">privacy@nuruai.org</a><br>
+      Account deletion: <a href="mailto:info@alkebuleum.org?subject=Delete%20Nuru%20Account">info@alkebuleum.org</a>
+    </p>
+    <p>We will respond within 30 days. See our full <a href="privacy.html">Privacy Policy</a> for more detail on all of your rights.</p>
+  </div>
+
+</main>
+
+<footer class="page-footer">
+  <a href="/" class="pf-logo">
+    <svg width="18" height="18" viewBox="0 0 30 30" fill="none">
+      <defs><linearGradient id="ftG" x1="15" y1="0" x2="15" y2="30" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F5B800"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient></defs>
+      <g stroke="url(#ftG)" stroke-width="1.8" stroke-linecap="round" opacity="0.6">
+        <line x1="15" y1="1" x2="15" y2="6"/><line x1="15" y1="24" x2="15" y2="29"/>
+        <line x1="1" y1="15" x2="6" y2="15"/><line x1="24" y1="15" x2="29" y2="15"/>
+      </g>
+      <circle cx="15" cy="15" r="4" fill="url(#ftG)"/>
+    </svg>
+    Nuru
+  </a>
+  <ul class="pf-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="privacy.html">Privacy Policy</a></li>
+    <li><a href="terms.html">Terms of Service</a></li>
+    <li><a href="delete-account.html">Delete Account</a></li>
+  </ul>
+  <p class="pf-copy">© 2025 Nuru · AI Guide for Identity &amp; Finance · Built on Alkebuleum</p>
+</footer>
+
+</body>
+</html>
