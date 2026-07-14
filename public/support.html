@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<title>Support — Nuru</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #050408; --gold: #F5B800; --violet: #A78BFA; --blue: #3B82F6;
+  --text: #ffffff; --muted: rgba(235,235,245,0.52); --dim: rgba(235,235,245,0.22);
+  --border: rgba(255,255,255,0.06);
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+body::after {
+  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px;
+  background: rgba(5,4,8,0.8); backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 800;
+  text-decoration: none; color: #fff;
+}
+.nav-back {
+  font-size: 13px; color: var(--muted); text-decoration: none;
+  display: flex; align-items: center; gap: 6px; transition: color 0.2s;
+}
+.nav-back:hover { color: #fff; }
+
+.page-wrap {
+  max-width: 780px; margin: 0 auto;
+  padding: 140px 48px 100px;
+  position: relative; z-index: 1;
+}
+
+.doc-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.4px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+}
+.doc-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 5vw, 56px); font-weight: 800;
+  letter-spacing: -2px; line-height: 1.05; margin-bottom: 16px;
+}
+.doc-date { font-size: 13px; color: var(--dim); margin-bottom: 64px; }
+
+.info-box {
+  background: rgba(167,139,250,0.06);
+  border: 1px solid rgba(167,139,250,0.18);
+  border-radius: 16px; padding: 24px 28px; margin-bottom: 56px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.info-box p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+.info-box strong { color: var(--violet); font-weight: 600; }
+.info-icon {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.22);
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+
+.green-box {
+  background: rgba(170,255,69,0.04);
+  border: 1px solid rgba(170,255,69,0.15);
+  border-radius: 16px; padding: 24px 28px; margin-bottom: 32px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.green-box p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+.green-box strong { color: #AAFF45; font-weight: 600; }
+.green-icon {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  background: rgba(170,255,69,0.08); border: 1px solid rgba(170,255,69,0.18);
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+
+.critical-box {
+  background: rgba(239,68,68,0.05);
+  border: 1px solid rgba(239,68,68,0.18);
+  border-radius: 16px; padding: 24px 28px; margin-bottom: 32px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.critical-box p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+.critical-box strong { color: #f87171; font-weight: 600; }
+.crit-icon {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.22);
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+
+/* Contact card */
+.request-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px; padding: 36px 40px; margin: 40px 0;
+}
+.request-card h3 {
+  font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700;
+  margin-bottom: 16px; color: #fff; letter-spacing: -0.3px;
+}
+.request-card p { margin-bottom: 20px; }
+
+.email-button {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(245,184,0,0.1); border: 1px solid rgba(245,184,0,0.3);
+  border-radius: 12px; padding: 14px 24px;
+  font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700;
+  color: var(--gold); text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.email-button:hover {
+  background: rgba(245,184,0,0.18); border-color: rgba(245,184,0,0.5);
+  color: #ffcf3d; text-decoration: none;
+}
+
+/* FAQ */
+.faq-item {
+  border: 1px solid var(--border); border-radius: 14px;
+  margin-bottom: 12px; overflow: hidden;
+  background: rgba(255,255,255,0.02);
+}
+.faq-q {
+  padding: 18px 22px; font-family: 'Syne', sans-serif; font-size: 15px;
+  font-weight: 700; color: #fff; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  list-style: none;
+}
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q .chev { color: var(--dim); transition: transform 0.2s; flex-shrink: 0; }
+details[open] .faq-q .chev { transform: rotate(90deg); }
+.faq-a { padding: 0 22px 20px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.faq-a a { color: var(--violet); }
+
+.doc-section { margin-bottom: 52px; }
+.doc-section:last-child { margin-bottom: 0; }
+
+h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px; font-weight: 700; letter-spacing: -0.5px;
+  margin-bottom: 18px; color: #fff;
+  padding-bottom: 14px; border-bottom: 1px solid var(--border);
+}
+h2 .num { color: var(--dim); font-weight: 400; margin-right: 10px; font-size: 14px; }
+p { color: var(--muted); margin-bottom: 14px; }
+p:last-child { margin-bottom: 0; }
+ul, ol { color: var(--muted); padding-left: 20px; margin-bottom: 14px; }
+li { margin-bottom: 8px; }
+strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+a { color: var(--violet); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.page-footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px; position: relative; z-index: 1;
+}
+.pf-logo {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 800;
+  text-decoration: none; color: #fff;
+}
+.pf-links { display: flex; gap: 20px; list-style: none; flex-wrap: wrap; }
+.pf-links a { font-size: 12px; color: var(--dim); text-decoration: none; transition: color 0.2s; }
+.pf-links a:hover { color: #fff; }
+.pf-copy { width: 100%; font-size: 12px; color: var(--dim); }
+
+@media (max-width: 768px) {
+  nav { padding: 18px 20px; }
+  .page-wrap { padding: 120px 20px 80px; }
+  .page-footer { padding: 28px 20px; }
+  .request-card { padding: 24px 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg width="22" height="22" viewBox="0 0 30 30" fill="none">
+      <defs><linearGradient id="nlG" x1="15" y1="0" x2="15" y2="30" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F5B800"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient></defs>
+      <g stroke="url(#nlG)" stroke-width="1.8" stroke-linecap="round" opacity="0.75">
+        <line x1="15" y1="1" x2="15" y2="6"/><line x1="15" y1="24" x2="15" y2="29"/>
+        <line x1="1" y1="15" x2="6" y2="15"/><line x1="24" y1="15" x2="29" y2="15"/>
+        <line x1="4.4" y1="4.4" x2="8.2" y2="8.2"/><line x1="21.8" y1="21.8" x2="25.6" y2="25.6"/>
+        <line x1="25.6" y1="4.4" x2="21.8" y2="8.2"/><line x1="4.4" y1="25.6" x2="8.2" y2="21.8"/>
+      </g>
+      <circle cx="15" cy="15" r="4.5" fill="url(#nlG)"/>
+    </svg>
+    Nuru
+  </a>
+  <a href="/" class="nav-back">← Back to home</a>
+</nav>
+
+<main class="page-wrap">
+
+  <div class="doc-eyebrow">Help</div>
+  <h1 class="doc-title">Support</h1>
+  <p class="doc-date">Get help with the Nuru Wallet app — questions, issues, and how to reach us</p>
+
+  <div class="info-box">
+    <div class="info-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#A78BFA" stroke-width="1.8" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <p><strong>We're here to help.</strong> Whether you have a question about the app, ran into a bug, or need help with your wallet or identity, reach out and a real person will respond.</p>
+  </div>
+
+  <!-- Contact -->
+  <div class="doc-section">
+    <h2><span class="num">01</span>Contact Us</h2>
+    <p>The fastest way to reach the Nuru team is by email. Include your platform (iOS/Android), app version, and a short description of the issue so we can help quickly.</p>
+
+    <div class="request-card">
+      <h3>Email support</h3>
+      <p>We typically respond within 1–2 business days.</p>
+      <a href="mailto:info@alkebuleum.org?subject=Nuru%20Support%20Request" class="email-button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="4" width="20" height="16" rx="2" stroke="#F5B800" stroke-width="1.8"/>
+          <path d="M2 7l10 7 10-7" stroke="#F5B800" stroke-width="1.8" stroke-linejoin="round"/>
+        </svg>
+        Email info@alkebuleum.org
+      </a>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="doc-section">
+    <h2><span class="num">02</span>Frequently Asked Questions</h2>
+
+    <details class="faq-item">
+      <summary class="faq-q">The app is stuck on the splash screen or won't load<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="faq-a">Force-quit the app and reopen it on a stable internet connection. If it still doesn't load, make sure you're on the latest version from the App Store or Google Play, then contact support with your device model and OS version.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">I lost my seed phrase / recovery phrase<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="faq-a">If you set up a Guardian/social recovery for your wallet, you can recover access through the in-app recovery flow. If you did not set up a guardian and have lost your seed phrase, we are unable to recover the wallet on your behalf — Nuru never has access to your private keys or seed phrase. Contact support if you'd like guidance on your options.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">A transaction is stuck or failed<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="faq-a">Check the transaction's status under Activity in the app. If it shows as failed or pending for an extended period, email support with the transaction hash and a description of what you were trying to do.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">How do I delete my account and data?<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="faq-a">See our <a href="delete-account.html">Account Deletion page</a> for step-by-step instructions.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">I think I've been targeted by a scam or phishing attempt<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="faq-a">Nuru will never ask you for your private key, seed phrase, or wallet password — in the app, by email, or anywhere else. If someone claiming to be Nuru asks for these, do not comply, and report it to support immediately.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">I found a bug or want to request a feature<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="faq-a">We'd love to hear from you — email support with as much detail as possible (steps to reproduce, screenshots, device/app version for bugs; a short description for feature requests).</div>
+    </details>
+  </div>
+
+  <!-- Security reminder -->
+  <div class="doc-section">
+    <div class="green-box">
+      <div class="green-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M9 12l2 2 4-4" stroke="#AAFF45" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="12" r="9" stroke="#AAFF45" stroke-width="1.8"/>
+        </svg>
+      </div>
+      <p><strong>Reminder:</strong> Support will never ask for your private key, seed phrase, or wallet password. Never share these with anyone, including someone claiming to be from the Nuru team.</p>
+    </div>
+  </div>
+
+  <!-- More resources -->
+  <div class="doc-section">
+    <h2><span class="num">03</span>More Resources</h2>
+    <p>
+      <a href="privacy.html">Privacy Policy</a> — how we handle your data<br>
+      <a href="terms.html">Terms of Service</a> — the rules of using Nuru<br>
+      <a href="delete-account.html">Delete Account</a> — how to remove your data
+    </p>
+  </div>
+
+</main>
+
+<footer class="page-footer">
+  <a href="/" class="pf-logo">
+    <svg width="18" height="18" viewBox="0 0 30 30" fill="none">
+      <defs><linearGradient id="ftG" x1="15" y1="0" x2="15" y2="30" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F5B800"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient></defs>
+      <g stroke="url(#ftG)" stroke-width="1.8" stroke-linecap="round" opacity="0.6">
+        <line x1="15" y1="1" x2="15" y2="6"/><line x1="15" y1="24" x2="15" y2="29"/>
+        <line x1="1" y1="15" x2="6" y2="15"/><line x1="24" y1="15" x2="29" y2="15"/>
+      </g>
+      <circle cx="15" cy="15" r="4" fill="url(#ftG)"/>
+    </svg>
+    Nuru
+  </a>
+  <ul class="pf-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="support.html">Support</a></li>
+    <li><a href="privacy.html">Privacy Policy</a></li>
+    <li><a href="terms.html">Terms of Service</a></li>
+    <li><a href="delete-account.html">Delete Account</a></li>
+  </ul>
+  <p class="pf-copy">© 2025 Nuru · AI Guide for Identity &amp; Finance · Built on Alkebuleum</p>
+</footer>
+
+</body>
+</html>

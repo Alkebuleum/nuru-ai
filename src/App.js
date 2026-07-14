@@ -207,6 +207,7 @@ export default function App() {
           <li><a href="#about">About</a></li>
           <li><a href="#wallet">Wallet</a></li>
           <li><a href="#download">Download</a></li>
+          <li><a href="support.html">Support</a></li>
           <li><a href="privacy.html">Privacy</a></li>
           <li><a href="terms.html">Terms</a></li>
         </ul>
@@ -242,7 +243,7 @@ export default function App() {
                   <span className="sp-name">App Store</span>
                 </div>
               </a>
-              <a href="#" className="store-pill">
+              <a href="https://play.google.com/store/apps/details?id=com.alkebuleum.nuru&pcampaignid=web_share" className="store-pill" target="_blank" rel="noopener noreferrer">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <path d="M3 20.5l8.5-8.5M3 3.5l8.5 8.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" opacity="0.85"/>
                   <path d="M3 3.5L17 12 3 20.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" opacity="0.85"/>
@@ -416,7 +417,7 @@ export default function App() {
                 <span className="dl-btn-name">App Store</span>
               </div>
             </a>
-            <a href="#" className="dl-btn dl-btn-secondary">
+            <a href="https://play.google.com/store/apps/details?id=com.alkebuleum.nuru&pcampaignid=web_share" className="dl-btn dl-btn-secondary" target="_blank" rel="noopener noreferrer">
               <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
                 <path d="M3 20.5l8.5-8.5M3 3.5l8.5 8.5" stroke="white" strokeWidth="1.8" strokeLinecap="round"/>
                 <path d="M3 3.5L17 12 3 20.5" stroke="white" strokeWidth="1.8" strokeLinecap="round"/>
@@ -459,6 +460,7 @@ export default function App() {
           <li><a href="#about">About</a></li>
           <li><a href="#wallet">Wallet</a></li>
           <li><a href="#download">Download</a></li>
+          <li><a href="support.html">Support</a></li>
           <li><a href="privacy.html">Privacy Policy</a></li>
           <li><a href="terms.html">Terms of Service</a></li>
         </ul>
